@@ -20,7 +20,7 @@ const Details = () => {
                             {job?.job_title}
                         </h1>
                     </span>
-                    <div className='company flex  justify-left items-center gap-2'>
+                    <div className='company flex justify-left items-center gap-2'>
                         <img
                             src={
                                 checkImageURL(job?.employer_logo)
@@ -28,9 +28,9 @@ const Details = () => {
                                     : 'https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg'
                             }
                             alt={job?.employer_name}
-                            className=' w-[20%] md:w-[10%] ml-2'
+                            className=' w-[40%] ml-2 rounded-lg'
                         />
-                        <span className='text-[14px] py-[1rem] block text-gray-600 font-semibold'>
+                        <span className='md:text-[20px] text-[14px] py-[1rem] block text-gray-600 font-semibold'>
                             {job?.employer_name}
                         </span>
                     </div>
@@ -47,8 +47,10 @@ const Details = () => {
                     </Link>
                 </div>
             </div>
-
-            <p>Description: {job.job_description}</p>
+            <h2 className='mt-4 font-semibold text-xl text-gray-700 mb-1 m-2 group-hover:text-blueColor'>
+                Description
+            </h2>
+            <p>{job.job_description}</p>
         </div>
     );
 };

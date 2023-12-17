@@ -10,7 +10,7 @@ export function JobsContextProvider({ children }) {
         if (jobLocation === 'ALL') {
             return jobs;
         } else {
-            return job.job_state === jobLocation;
+            job.job_state === jobLocation;
         }
     });
 

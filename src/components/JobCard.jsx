@@ -3,14 +3,11 @@ import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../../firebase';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
-import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
 const JobCard = ({ job }) => {
-    const [like, setLike] = useState(false);
-    const [saved, setSaved] = useState(false);
-    const { user } = UserAuth();
+    const { user, like, setLike, setSaved } = UserAuth();
     const jobRef = doc(db, 'users', `${user?.email}`);
 
     const saveShow = async () => {
@@ -85,7 +82,7 @@ const JobCard = ({ job }) => {
                     className='m-auto mb-2 border-[2px] border-blueColor bg-blueColor rounded-[10px] block p-[10px] w-[50%] text-[14px] font-semibold 
         text-[#fff] hover:border-blueColor hover:bg-white hover:text-gray-600'
                 >
-                    Apply
+                    More Details
                 </button>
             </Link>
         </div>

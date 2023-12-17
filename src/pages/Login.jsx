@@ -6,8 +6,8 @@ import bg from '../assets/white-bg.png';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const { user, logIn } = UserAuth();
+    const [error, setError] = useState(false);
+    const { logIn } = UserAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -17,25 +17,20 @@ const Login = () => {
             await logIn(email, password);
             navigate('/account');
         } catch (error) {
-            console.log(error);
-            setError(error.message);
+            setError(true);
         }
     };
 
     return (
-        <div className='w-full h-screen'>
-            <img
-                className='hidden sm:block absolute w-full h-full object-cover'
-                src={bg}
-                alt='striped background image'
-            />
-
-            <div className='absolute w-full px-4 py-24 z-50'>
-                <div className='max-w-[450px] h-[600px] mx-auto bg-black text-white'>
-                    <div className='max-w-[320px] mx-auto py-16'>
+        <div className='w-full h-screen flex items-center justify-center'>
+            <div className='flex items-center justify-center absolute w-full px-4 py-24 z-50'>
+                <div className='max-w-lg w-full h-[600px]  bg-black text-white'>
+                    <div className='max-w-[320px] mx-auto py-16 text-center'>
                         <h1 className='text-3xl font-bold'>Login</h1>
                         {error ? (
-                            <p className='p-3 bg-red-400 my-2'>{error}</p>
+                            <p className='p-3 bg-red-400 my-2'>
+                                There is a problem with email or password
+                            </p>
                         ) : null}
                         <form
                             onSubmit={handleSubmit}

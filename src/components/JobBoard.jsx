@@ -13,7 +13,7 @@ const JobBoard = ({ isLoading, error }) => {
     const lastPostIndex = currentPage * postsPerPage;
     const firstPostIndex = lastPostIndex - postsPerPage;
 
-    const currentPosts = filteredJobs.slice(firstPostIndex, lastPostIndex);
+    const currentPosts = filteredJobs?.slice(firstPostIndex, lastPostIndex);
 
     return (
         <>

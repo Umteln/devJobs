@@ -37,11 +37,11 @@ const SavedJobs = () => {
 
             <div className='p-2'>
                 <div className='w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto'>
-                    <div className='my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer'>
-                        <span> Job Title </span>
-                        <span className='hidden sm:grid'>Company</span>
-                        <span className='sm:text-left text-right '>Apply</span>
-                        <span className='hidden sm:grid'>Employment Type</span>
+                    <div className='my-3 p-2 grid md:grid-cols-4 grid-cols-2 items-center justify-between cursor-pointer text-center'>
+                        <span className=' md:grid'> Title </span>
+                        <span className='hidden md:grid ml-2'>Company</span>
+                        <span className='hidden md:grid '>Apply</span>
+                        <span className='md:grid ml-5'>Type</span>
                     </div>
                     <ul>
                         {savedJobs?.map((item, i) => (

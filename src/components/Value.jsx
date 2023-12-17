@@ -30,7 +30,7 @@ const Value = () => {
                             <AiFillStar color='#fff' />
                         </div>
                         <span className='font-semibold text-textColor text-[16px] md:text-[18px]'>
-                            Ease
+                            Easy
                         </span>
                     </div>
                 </div>
@@ -43,20 +43,17 @@ const Value = () => {
                             <AiFillStar color='#fff' />
                         </div>
                         <span className='font-semibold text-textColor text-[16px] md:text-[18px]'>
-                            Trust
+                            Trustworthy
                         </span>
                     </div>
                 </div>
             </div>
 
-            <div className='card mt-[2rem] flex justify-between border-[2px] border-blueColor p-[5rem] rounded-[10px] '>
+            <div className='card mt-[2rem] flex justify-between border-[2px] border-blueColor p-3 rounded-[10px] '>
                 <div className='mr-5'>
                     <h1 className='text-blueColor text-[25px] md:text-[30px] font-bold'>
                         Ready to switch careers
                     </h1>
-                    <h2 className='text-textColor text-[16px] md:text-[25px] font-bold'>
-                        Let us help you reach you goals
-                    </h2>
                 </div>
 
                 <button

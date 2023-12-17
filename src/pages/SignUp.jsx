@@ -1,11 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import { useState } from 'react';
-import bg from '../assets/white-bg.png';
+
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { user, signUp } = UserAuth();
+    const [error, setError] = useState(false);
+    const { signUp } = UserAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -15,22 +16,16 @@ const SignUp = () => {
             alert('Success, Account created');
             navigate('/account');
         } catch (error) {
-            alert('There was an error' + error);
+            setError(true);
         }
     };
 
     return (
         <>
-            <div className='w-full h-screen'>
-                <img
-                    className='hidden sm:block absolute w-full h-full object-cover'
-                    src={bg}
-                    alt='striped background image'
-                />
-
-                <div className='absolute w-full px-4 py-24 z-50'>
-                    <div className='max-w-[450px] h-[600px] mx-auto bg-black text-white'>
-                        <div className='max-w-[320px] mx-auto py-16'>
+            <div className='w-full h-screen flex items-center justify-center'>
+                <div className='flex items-center justify-center absolute w-full px-4 py-24 z-50'>
+                    <div className='max-w-lg w-full h-[600px]  bg-black text-white'>
+                        <div className='max-w-[320px] mx-auto py-16 text-center'>
                             <h1 className='text-3xl font-bold'>Sign Up</h1>
                             <form
                                 onSubmit={handleSubmit}
@@ -55,6 +50,11 @@ const SignUp = () => {
                                 <button className='bg-blueColor py-3 my-6 rounded font-bold'>
                                     Sign Up
                                 </button>
+                                {error && (
+                                    <p className='text-sm text-red-600'>
+                                        There is an issue with email or password
+                                    </p>
+                                )}
                                 <div className='flex justify-between items-center text-sm text-gray-600'>
                                     <p>
                                         <input
