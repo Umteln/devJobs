@@ -1,9 +1,3 @@
-import { createBrowserRouter } from 'react-router-dom';
-
-import Login from '../pages/Login';
-import Dashboard from '../pages/Dashboard';
-import Layout from '../components/Protected';
-
 export const ROOT = '/';
 export const LOGIN = '/login';
 export const REGISTER = '/register';

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const JobCard = ({ job }) => {
     const { user, like, setLike, setSaved } = UserAuth();
     const jobRef = doc(db, 'users', `${user?.email}`);
-
+    console.log(job);
     const saveShow = async () => {
         if (user?.email) {
             setLike(!like);

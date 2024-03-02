@@ -5,8 +5,9 @@ import { onSnapshot, doc, updateDoc } from 'firebase/firestore';
 import Item from './Item';
 
 const SavedJobs = () => {
-    const [savedJobs, setSavedJobs] = useState([]);
     const { user } = UserAuth();
+    const [savedJobs, setSavedJobs] = useState([]);
+
     const jobsRef = doc(db, 'users', `${user?.email}`);
 
     useEffect(() => {
@@ -38,20 +39,26 @@ const SavedJobs = () => {
             <div className='p-2'>
                 <div className='w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto'>
                     <div className='my-3 p-2 grid md:grid-cols-4 grid-cols-2 items-center justify-between cursor-pointer text-center'>
-                        <span className=' md:grid'> Title </span>
+                        <span className='md:grid'> Title </span>
                         <span className='hidden md:grid ml-2'>Company</span>
-                        <span className='hidden md:grid '>Apply</span>
-                        <span className='md:grid ml-5'>Type</span>
+                        <span className='md:grid '>Type</span>
+                        <span className='hidden md:grid ml-5'>Remove</span>
                     </div>
-                    <ul>
-                        {savedJobs?.map((item, i) => (
-                            <Item
-                                key={`${item.title}${i}`}
-                                item={item}
-                                removeJob={removeJob}
-                            />
-                        ))}
-                    </ul>
+                    {savedJobs.length > 0 ? (
+                        <ul>
+                            {savedJobs?.map((item, i) => (
+                                <Item
+                                    key={`${item.title}${i}`}
+                                    item={item}
+                                    removeJob={removeJob}
+                                />
+                            ))}
+                        </ul>
+                    ) : (
+                        <div className='grid place-items-center mt-12'>
+                            <p className='text-4xl'>No Jobs Saved</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

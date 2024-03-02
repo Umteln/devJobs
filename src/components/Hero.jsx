@@ -1,4 +1,3 @@
-import React from 'react';
 import DropDown from './DropDown';
 
 const Hero = () => {
@@ -17,8 +16,9 @@ const Hero = () => {
                     </p>
                 </div>
             </div>
-
-            <DropDown />
+            <div className='flex flex-col md:flex-row items-center justify-center gap-8'>
+                <DropDown />
+            </div>
         </div>
     );
 };

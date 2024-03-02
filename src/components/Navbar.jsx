@@ -26,6 +26,7 @@ const Navbar = () => {
             <div className='menu flex gap-8'>
                 {user?.email ? (
                     <>
+                        <p>Welcome Back, {user?.email}</p>
                         <Link to='/account'>
                             <button className='menuList text-[#6f6f6f] hover:text-blueColor'>
                                 Account
